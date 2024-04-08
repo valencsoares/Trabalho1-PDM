@@ -18,6 +18,20 @@ export default function App() {
   const [esporte, setEsporte] = useState('');
   const [time1, setTime1] = useState('');
   const [time2, setTime2] = useState('');
+  const [isClicked, setIsClicked] = useState(true);
+  const [isClicked2, setIsClicked2] = useState(true);
+  const [placar1, setPlacar1] = useState(0);
+  const [placar2, setPlacar2] = useState(0);
+  function botao1() {
+    setIsClicked(false);
+    setIsClicked2(true);
+  }
+
+  function botao2() {
+    setIsClicked(true);
+    setIsClicked2(false);
+  }
+  const time = isClicked ? time2 : time1
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
@@ -49,11 +63,24 @@ export default function App() {
       />
 
       <Text style={styles.text}>Placar - {esporte}</Text>
+
       <View style={styles.line}>
         <Text style={styles.text}>{time1}: </Text>
         <Text>{placar1}     </Text>
         <Text style={styles.text}>{time2}: </Text>
         <Text>{placar2}</Text>
+      </View>
+
+      <Text style={{ marginTop: 20, color: '#fff' }}> Selecione o time do jogador: </Text>
+      <View style={styles.line}>
+      <Button
+          onPress={() => { botao1() }}
+          title={isClicked ? time1 : time1}
+        />
+        <Button
+          onPress={() => { botao2() }}
+          title={isClicked2 ? time2 : time2}
+        />
       </View>
 
   );
