@@ -13,9 +13,6 @@ function Footer(){
     <Text style={styles.footer}>footer</Text>
   )
 }
-  
-  export default function App() {
-    const [text, setText] = useState('');
 
 export default function App() {
   const [esporte, setEsporte] = useState('');
