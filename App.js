@@ -43,6 +43,15 @@ export default function App() {
     console.log(lista);
   }
 
+  function placar() {
+    jogadorGol()
+    if (time == time1) {
+      return setPlacar1(p => p + 1);
+    } else {
+      setPlacar2(p => p + 1);
+    }
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
@@ -119,6 +128,9 @@ export default function App() {
         {lista.map((item, index) => (
           <View key={index} style={styles.line}>
             <Text>{item.jogador} - {item.time} - #{item.camiseta}
+              <TouchableOpacity onPress={(placar)}>
+                <Text>+</Text>
+              </TouchableOpacity>
             </Text>
           </View>
         ))}
