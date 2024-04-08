@@ -115,6 +115,15 @@ export default function App() {
         <Text style={{ color: "#4994EC" }}>Adicionar jogador</Text>
       </TouchableOpacity>
 
+      <View>
+        {lista.map((item, index) => (
+          <View key={index} style={styles.line}>
+            <Text>{item.jogador} - {item.time} - #{item.camiseta}
+            </Text>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
   );
 }
 
