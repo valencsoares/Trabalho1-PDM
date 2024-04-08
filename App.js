@@ -53,6 +53,11 @@ export default function App() {
     } else (
       setPlacar2(p => p+1)
     ); 
+    if (index >= 0) {
+      setPonto(pontoAnterior => ({ ...pontoAnterior, [jogador]: pontoAnterior[jogador] + 1 }));
+      console.log(ponto)
+      console.log(item.jogador);
+      console.log(item.time);
     }
   }
 
@@ -97,7 +102,7 @@ export default function App() {
 
       <Text style={{ marginTop: 20, color: '#fff' }}> Selecione o time do jogador: </Text>
       <View style={styles.line}>
-      <Button
+        <Button
           onPress={() => { botao1() }}
           title={isClicked ? time1 : time1}
         />
@@ -132,6 +137,7 @@ export default function App() {
         {lista.map((item, index) => (
           <View key={index} style={styles.line}>
             <Text>{item.jogador} - {item.time} - #{item.camiseta}
+              <Text>Pontos: {ponto[item.jogador]}</Text>
               <TouchableOpacity onPress={() => placar(index, item.jogador)}>
                 <Text>+</Text>
               </TouchableOpacity>
