@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, Text, FlatList, TextInput, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Image, Text, Button, TextInput, View, ScrollView, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 
 function Header(){
@@ -18,10 +18,15 @@ export default function App() {
   const [esporte, setEsporte] = useState('');
   const [time1, setTime1] = useState('');
   const [time2, setTime2] = useState('');
+  const [jogador, setJogador] = useState('');
+  const [camiseta, setCamiseta] = useState('');
   const [isClicked, setIsClicked] = useState(true);
   const [isClicked2, setIsClicked2] = useState(true);
+  const [botaoJ, setBotaoJ] = useState(true);
   const [placar1, setPlacar1] = useState(0);
   const [placar2, setPlacar2] = useState(0);
+  const [lista, setLista] = useState([]);
+
   function botao1() {
     setIsClicked(false);
     setIsClicked2(true);
@@ -32,6 +37,12 @@ export default function App() {
     setIsClicked2(false);
   }
   const time = isClicked ? time2 : time1
+  function botao3() {
+    setBotaoJ(false);
+    setLista([...lista, { jogador: jogador, camiseta: camiseta, time: time }]);
+    console.log(lista);
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
@@ -97,6 +108,13 @@ export default function App() {
         onChangeText={(c) => setCamiseta(c)}
         defaultValue={camiseta}
       />
+      <TouchableOpacity
+        onPress={() => { botao3() }}
+        onChangeText={(b) => setBotaoJ(b)}
+        defaultValue={botaoJ}>
+        <Text style={{ color: "#4994EC" }}>Adicionar jogador</Text>
+      </TouchableOpacity>
+
   );
 }
 
