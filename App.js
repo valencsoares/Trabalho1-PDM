@@ -26,6 +26,7 @@ export default function App() {
   const [placar1, setPlacar1] = useState(0);
   const [placar2, setPlacar2] = useState(0);
   const [lista, setLista] = useState([]);
+  const [ponto, setPonto] = useState(0);
 
   function botao1() {
     setIsClicked(false);
@@ -36,11 +37,13 @@ export default function App() {
     setIsClicked(true);
     setIsClicked2(false);
   }
+
   const time = isClicked ? time2 : time1
   function botao3() {
     setBotaoJ(false);
-    setLista([...lista, { jogador: jogador, camiseta: camiseta, time: time }]);
+    setLista([...lista, { jogador: jogador, camiseta: camiseta, time: time, ponto: ponto }]);
     console.log(lista);
+    setPonto(pontoAnterior => ({ ...pontoAnterior, [jogador]: 0 }));
   }
 
   function placar(index, jogador) {
