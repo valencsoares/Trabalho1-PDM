@@ -16,10 +16,49 @@ function Footer(){
   
   export default function App() {
     const [text, setText] = useState('');
+
+export default function App() {
+  const [esporte, setEsporte] = useState('');
+  const [time1, setTime1] = useState('');
+  const [time2, setTime2] = useState('');
   return (
-    <ScrollView style={styles.container}>
-      <Header/>
-    </ScrollView>  
+    <ScrollView
+      contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
+      style={styles.container}>
+      <Header />
+      <Footer />
+      <Text style={{ marginTop: 20 }}></Text>
+
+      <Text style={styles.textTitulo}>Marcador de Pontos do JIFENA 2024</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Digite o esporte"
+        onChangeText={(e) => setEsporte(e)}
+        defaultValue={esporte}
+      />
+      <Text style={styles.text}>Nome do time 1</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Informe o nome do time 1 aqui!"
+        onChangeText={(t1) => setTime1(t1)}
+        defaultValue={time1}
+      />
+      <Text style={styles.text}>Nome do time 2</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Informe o nome do time 2 aqui!"
+        onChangeText={(t2) => setTime2(t2)}
+        defaultValue={time2}
+      />
+
+      <Text style={styles.text}>Placar - {esporte}</Text>
+      <View style={styles.line}>
+        <Text style={styles.text}>{time1}: </Text>
+        <Text>{placar1}     </Text>
+        <Text style={styles.text}>{time2}: </Text>
+        <Text>{placar2}</Text>
+      </View>
+
   );
 }
 
@@ -30,10 +69,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textTitulo: {
+  text: {
     color: 'white',
     fontSize: 30,
   },
   text: {
+  textTitulo: {
+    backgroundColor: 'grey',
+    fontWeight: 'bold',
     color: 'white',
   },
   logo: {
@@ -42,6 +85,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: '2%',
+  input: {
+    height: 40,
+    borderWidth: 1,
+    width: 250,
+    borderColor: 'white',
   },
   footer: {
     backgroundColor: 'white',
