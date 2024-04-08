@@ -43,12 +43,13 @@ export default function App() {
     console.log(lista);
   }
 
-  function placar() {
-    jogadorGol()
-    if (time == time1) {
-      return setPlacar1(p => p + 1);
-    } else {
-      setPlacar2(p => p + 1);
+  function placar(index, jogador) {
+    const item = lista[index]
+    if (item.time == time1){
+      setPlacar1(p => p+1)
+    } else (
+      setPlacar2(p => p+1)
+    ); 
     }
   }
 
@@ -128,7 +129,7 @@ export default function App() {
         {lista.map((item, index) => (
           <View key={index} style={styles.line}>
             <Text>{item.jogador} - {item.time} - #{item.camiseta}
-              <TouchableOpacity onPress={(placar)}>
+              <TouchableOpacity onPress={() => placar(index, item.jogador)}>
                 <Text>+</Text>
               </TouchableOpacity>
             </Text>
