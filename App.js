@@ -83,6 +83,20 @@ export default function App() {
         />
       </View>
 
+      <Text style={styles.text}>Cadastre o jogador do time:</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Informe o nome do jogador"
+        onChangeText={(j) => setJogador(j)}
+        defaultValue={jogador}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Informe o número da camiseta"
+        onChangeText={(c) => setCamiseta(c)}
+        defaultValue={camiseta}
+      />
   );
 }
 
@@ -92,23 +106,18 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  textTitulo: {
   text: {
     color: 'white',
-    fontSize: 30,
   },
-  text: {
   textTitulo: {
     backgroundColor: 'grey',
     fontWeight: 'bold',
     color: 'white',
   },
-  logo: {
-    width: 200,
-    height: 200,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: '2%',
+  line: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   input: {
     height: 40,
     borderWidth: 1,
@@ -132,5 +141,5 @@ const styles = StyleSheet.create({
     width: '100%',
     zIndex: 1,
     textAlign: 'center',
-  }
+  },
 });
