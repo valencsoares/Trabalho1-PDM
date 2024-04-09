@@ -22,6 +22,7 @@ export default function App() {
   const [placar2, setPlacar2] = useState(0);
   const [lista, setLista] = useState([]);
   const [ponto, setPonto] = useState(0);
+  const [aviso, setAviso] = useState('');
 
   function botao1() {
     setIsClicked(false);
@@ -35,10 +36,19 @@ export default function App() {
 
   const time = isClicked ? time2 : time1
   function botao3() {
-    setBotaoJ(false);
-    setLista([...lista, { jogador: jogador, camiseta: camiseta, time: time, ponto: ponto }]);
-    console.log(lista);
-    setPonto(pontoAnterior => ({ ...pontoAnterior, [jogador]: 0 }));
+    if (jogador != '' && camiseta !='' ){
+      setBotaoJ(false);
+      setLista([...lista, { jogador: jogador, camiseta: camiseta, time: time, ponto: ponto }]);
+      console.log(lista);
+      setPonto(pontoAnterior => ({ ...pontoAnterior, [jogador]: 0 }));
+      setAviso('')
+    } else if (jogador == '' && camiseta == '' ) {
+      setAviso('Informe o jogador e o nº da camiseta.')
+    } else if (jogador != '' && camiseta == '' ) {
+      setAviso('Informe o nº da camiseta.')
+    } else {
+      setAviso('Informe o jogador.')
+    }
   }
 
   function placar(index, jogador) {
@@ -126,6 +136,7 @@ export default function App() {
         </TouchableOpacity>
 
         <View>
+          <Text>{aviso}</Text>
           {lista.map((item, index) => (
             <View key={index} style={styles.line}>
               <Text>{item.jogador} - {item.time} - #{item.camiseta}</Text>
