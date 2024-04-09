@@ -63,82 +63,79 @@ export default function App() {
       <Header />
       <View style={{ flex: 1 }}>
 
-      <Text style={styles.textTitulo}>Marcador de Pontos do JIFENA 2024</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Digite o esporte"
-        onChangeText={(e) => setEsporte(e)}
-        defaultValue={esporte}
-      />
-      <Text style={styles.text}>Nome do time 1</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Informe o nome do time 1 aqui!"
-        onChangeText={(t1) => setTime1(t1)}
-        defaultValue={time1}
-      />
-      <Text style={styles.text}>Nome do time 2</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Informe o nome do time 2 aqui!"
-        onChangeText={(t2) => setTime2(t2)}
-        defaultValue={time2}
-      />
-
-      <Text style={styles.text}>Placar - {esporte}</Text>
-
-      <View style={styles.line}>
-        <Text style={styles.text}>{time1}: </Text>
-        <Text>{placar1}     </Text>
-        <Text style={styles.text}>{time2}: </Text>
-        <Text>{placar2}</Text>
-      </View>
-
-      <Text style={{ marginTop: 20, color: '#fff' }}> Selecione o time do jogador: </Text>
-      <View style={styles.line}>
-        <Button
-          onPress={() => { botao1() }}
-          title={isClicked ? time1 : time1}
+        <Text style={{fontWeight: 'bold', marginTop: '40px', textAlign: 'center' }}>Informe os dados necessários abaixo</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Informe o esporte"
+          onChangeText={(e) => setEsporte(e)}
+          defaultValue={esporte}
         />
-        <Button
-          onPress={() => { botao2() }}
-          title={isClicked2 ? time2 : time2}
+        <Text>Nome do time 1</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Informe o nome do time"
+          onChangeText={(t1) => setTime1(t1)}
+          defaultValue={time1}
         />
-      </View>
+        <Text>Nome do time 2</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Informe o nome do time"
+          onChangeText={(t2) => setTime2(t2)}
+          defaultValue={time2}
+        />
 
-      <Text style={styles.text}>Cadastre o jogador do time:</Text>
+        <Text style={{textAlign: 'center', marginTop: 10}}>Placar - {esporte}</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Informe o nome do jogador"
-        onChangeText={(j) => setJogador(j)}
-        defaultValue={jogador}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Informe o número da camiseta"
-        onChangeText={(c) => setCamiseta(c)}
-        defaultValue={camiseta}
-      />
-      <TouchableOpacity
-        onPress={() => { botao3() }}
-        onChangeText={(b) => setBotaoJ(b)}
-        defaultValue={botaoJ}>
-        <Text style={{ color: "#4994EC" }}>Adicionar jogador</Text>
-      </TouchableOpacity>
+        <View style={styles.line}>
+          <Text>{time1}: {placar1} </Text>
+          <Text>{time2}: {placar2} </Text>
+        </View>
 
-      <View>
-        {lista.map((item, index) => (
-          <View key={index} style={styles.line}>
-            <Text>{item.jogador} - {item.time} - #{item.camiseta}
+        <Text style={{marginTop: 15}}>Selecione o time do jogador: </Text>
+        <View style={{...styles.line, marginTop: 10}}>
+          <Button
+            onPress={() => { botao1() }}
+            title={isClicked ? time1 : time1}
+          />
+          <Button
+            onPress={() => { botao2() }}
+            title={isClicked2 ? time2 : time2}
+          />
+        </View>
+
+        <Text style={{ marginTop: 10, color: 'black' }}>Cadastre o jogador do time:</Text>
+
+        <TextInput
+          style={{...styles.input, marginTop: 10}}
+          placeholder="Informe o nome do jogador"
+          onChangeText={(j) => setJogador(j)}
+          defaultValue={jogador}
+        />
+        <TextInput
+          style={{...styles.input, marginTop: 2}}
+          placeholder="Informe o número da camiseta"
+          onChangeText={(c) => setCamiseta(c)}
+          defaultValue={camiseta}
+        />
+        <TouchableOpacity
+          onPress={() => { botao3() }}
+          onChangeText={(b) => setBotaoJ(b)}
+          defaultValue={botaoJ}>
+          <Text style={{ color: "#4994EC", textAlign: 'center', marginTop: 5 }}>Adicionar jogador</Text>
+        </TouchableOpacity>
+
+        <View>
+          {lista.map((item, index) => (
+            <View key={index} style={styles.line}>
+              <Text>{item.jogador} - {item.time} - #{item.camiseta}</Text>
               <Text>Pontos: {ponto[item.jogador]}</Text>
               <TouchableOpacity onPress={() => placar(index, item.jogador)}>
-                <Text>+</Text>
+                <Text style={{color: '#4994EC'}}>+</Text>
               </TouchableOpacity>
-            </Text>
-          </View>
-        ))}
             </View>
+          ))}
+        </View>
       </View>
     </ScrollView>
   );
@@ -156,9 +153,8 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderWidth: 1,
-    width: 250,
-    borderColor: 'white',
-  },
+    width: '20em',
+    borderColor: 'black',
   },
   navbar: {
     backgroundColor: 'black',
