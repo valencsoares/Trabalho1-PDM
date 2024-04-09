@@ -61,6 +61,7 @@ export default function App() {
       contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
       style={styles.container}>
       <Header />
+      <View style={{ flex: 1 }}>
 
       <Text style={styles.textTitulo}>Marcador de Pontos do JIFENA 2024</Text>
       <TextInput
@@ -137,6 +138,7 @@ export default function App() {
             </Text>
           </View>
         ))}
+            </View>
       </View>
     </ScrollView>
   );
