@@ -8,12 +8,6 @@ function Header(){
   )
 }
   
-function Footer(){
-  return(
-    <Text style={styles.footer}>footer</Text>
-  )
-}
-
 export default function App() {
   const [esporte, setEsporte] = useState('');
   const [time1, setTime1] = useState('');
@@ -66,8 +60,6 @@ export default function App() {
       contentContainerStyle={{ flexGrow: 1, alignItems: 'center' }}
       style={styles.container}>
       <Header />
-      <Footer />
-      <Text style={{ marginTop: 20 }}></Text>
 
       <Text style={styles.textTitulo}>Marcador de Pontos do JIFENA 2024</Text>
       <TextInput
@@ -173,15 +165,6 @@ const styles = StyleSheet.create({
     width: 250,
     borderColor: 'white',
   },
-  footer: {
-    backgroundColor: 'white',
-    bottom: 0,
-    zIndex: 1,
-    width: '100%',
-    alignItems: 'center',
-    marginBottom: 0,
-    position: 'fixed',
-    color: 'white',
   },
   navbar: {
     backgroundColor: '#fff',
