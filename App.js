@@ -1,10 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, Text, Button, TextInput, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, Button, TextInput, View, ScrollView, SafeAreaView , TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 
-function Header(){
-  return(
-    <Text style={styles.navbar}> Jifena 2024 </Text>
+function Header() {
+  return (
+    <SafeAreaView  style={styles.navbar}>
+      <Text style={{color: 'white', textAlign: 'center'}}> Marcador de Pontos do JIFENA 2024! </Text>
+    </SafeAreaView >
   )
 }
   
@@ -167,11 +168,12 @@ const styles = StyleSheet.create({
   },
   },
   navbar: {
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     top: 0,
     position: 'fixed',
     width: '100%',
+    height: '30px',
     zIndex: 1,
-    textAlign: 'center',
+    justifyContent: 'center', 
   },
 });
